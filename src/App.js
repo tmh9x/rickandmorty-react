@@ -1,4 +1,4 @@
-import Characters from "./components/Characters/Characters";
+import Characters from "./views/Characters/Characters";
 import "./App.css";
 
 function App() {

@@ -1,8 +1,8 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import CreateCard from "../CreateCard/CreateCard";
-import NavBar from "../NavBar/NavBar";
-import BasicPagination from "../BasicPagination/BasicPagination";
+import CreateCard from "../../components/CreateCard/CreateCard";
+import NavBar from "../../components/NavBar/NavBar";
+import BasicPagination from "../../components/BasicPagination/BasicPagination";
 import "./Characters.css";
 
 export default function Characters() {
