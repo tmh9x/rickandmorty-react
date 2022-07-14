@@ -6,13 +6,14 @@ import Typography from "@mui/material/Typography";
 import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import "./CreateCard.css";
 
 function CreateCard(character) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  console.log("character", character);
+  /*   console.log("character", character); */
 
   const style = {
     position: "absolute",
@@ -41,19 +42,41 @@ function CreateCard(character) {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              <h2>{character.props.name}</h2>
-              <p>Gender: {character.props.gender}</p>
-              <p>Species: {character.props.species}</p>
-              <p>Status: {character.props.status}</p>
+            <Typography
+              className="modal-title"
+              id="modal-modal-title"
+              variant="h4"
+              component="h4"
+            >
+              {character.props.name}
+            </Typography>
+            <Typography
+              className="modal"
+              id="modal-modal-title"
+              variant="p"
+              component="p"
+            >
+              Gender: {character.props.gender}
+            </Typography>
+            <Typography
+              className="modal"
+              id="modal-modal-title"
+              variant="p"
+              component="p"
+            >
+              Species: {character.props.species}
+            </Typography>
+            <Typography
+              className="modal"
+              id="modal-modal-title"
+              variant="p"
+              component="p"
+            >
+              Status: {character.props.status}
             </Typography>
           </Box>
         </Modal>
       </CardContent>
-      {/*  <CardActions>
-            <Button size="small">Share</Button>
-            <Button size="small">Learn More</Button>
-          </CardActions> */}
     </Card>
   );
 }

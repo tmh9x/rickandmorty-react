@@ -2,14 +2,14 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import CreateCard from "../CreateCard/CreateCard";
 import NavBar from "../NavBar/NavBar";
-import Pagination from "@mui/material/Pagination";
-import Stack from "@mui/material/Stack";
+import BasicPagination from "../BasicPagination/BasicPagination";
 import "./Characters.css";
 
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
   const [input, setInput] = useState("");
   const [page, setPage] = useState(1);
+  const [pageNumber, setPageNumber] = useState(10);
 
   const getInput = (event) => {
     setInput(event.target.value);
@@ -28,18 +28,15 @@ export default function Characters() {
       );
       const characters = await response.json();
       setCharacters(characters.results);
+      setPageNumber(characters.info.pages);
     } catch (error) {
       console.log(error);
     }
   };
 
-  console.log("characters :>> ", characters);
+  /* console.log("characters :>> ", characters); */
   console.log("page", page);
   console.log("type", typeof page);
-
-  const handleChange = (page) => {
-    setPage(page);
-  };
 
   useEffect(() => {
     getAllCharacters(page);
@@ -48,16 +45,13 @@ export default function Characters() {
   return (
     <>
       <NavBar getInput={getInput} />
-      <Stack spacing={2}>
-        <Pagination
-          className="pagination"
-          onChange={(event) => handleChange(event.target.textContent)}
-          // color the number in the slider
-          page={parseInt(page)}
-          count={10}
-          color="primary"
+      <div className="pagination">
+        <BasicPagination
+          setPage={setPage}
+          page={page}
+          pageNumber={pageNumber}
         />
-      </Stack>
+      </div>
       <div className="container">
         {results.map((character) => (
           <CreateCard key={character.id} props={character} />

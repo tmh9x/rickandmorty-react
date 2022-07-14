@@ -1,0 +1,20 @@
+.searchField {
+  background-color: rgb(25, 118, 210);
+  color: rgb(255, 255, 255);
+  border: none;
+  border-bottom: 1px solid white;
+  text-transform: uppercase;
+  width: 20%;
+  height: 35px;
+}
+
+.searchField:focus {
+  outline: none;
+}
+
+.searchField::placeholder {
+  color: white;
+}
+.searchField:focus::placeholder {
+  color: rgb(25, 118, 210);
+}
